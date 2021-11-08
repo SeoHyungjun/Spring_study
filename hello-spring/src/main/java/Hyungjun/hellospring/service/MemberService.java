@@ -8,7 +8,13 @@ import java.util.List;
 import java.util.Optional;
 
 public class MemberService {
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    private final MemberRepository memberRepository; // = new MemoryMemberRepository();
+
+    // 기존에 MemberService class를 만들 때 생성되던 memberRepository를 외부에서 넣어주는 방식으로 변경
+    // memberService 입장에서 MemoryMemberRepository를 외부에서 넣어줌 == DI(Dependency Injection)라고 함
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
     /**
      * 회원가입
