@@ -1,5 +1,6 @@
 package Hyungjun.hellospring;
 
+import Hyungjun.hellospring.repository.JdbcTemplateMemberRepository;
 import Hyungjun.hellospring.repository.MemberRepository;
 import Hyungjun.hellospring.repository.JdbcMemberRepository;
 import Hyungjun.hellospring.service.MemberService;
@@ -32,6 +33,7 @@ public class SpringConfig {
     @Bean
     public MemberRepository memberRepository() {
 //        return new MemoryMemberRepository(); // MemberRepository는 인터페이스라 new가 안됨, 구현체인 MemoryMemberRepository 사용
-        return new JdbcMemberRepository(dataSource);
+//        return new JdbcMemberRepository(dataSource);
+        return new JdbcTemplateMemberRepository(dataSource);
     }
 }
