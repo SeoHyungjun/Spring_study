@@ -22,7 +22,7 @@ class MemberServiceIntegrationTest {
     @Autowired MemberService memberService; //= new MemberService();
     @Autowired MemberRepository memberRepository; // = new MemoryMemberRepository();
 
-    @Tes
+    @Test
     void 회원가입() {
         // given
         Member member = new Member();
