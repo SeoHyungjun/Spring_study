@@ -1,6 +1,7 @@
 package Hyungjun.hellospring;
 
 import Hyungjun.hellospring.repository.JdbcTemplateMemberRepository;
+import Hyungjun.hellospring.repository.JpaMemberRepository;
 import Hyungjun.hellospring.repository.MemberRepository;
 import Hyungjun.hellospring.repository.JdbcMemberRepository;
 import Hyungjun.hellospring.service.MemberService;
@@ -8,17 +9,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.persistence.EntityManager;
 import javax.sql.DataSource;
 
 @Configuration
 public class SpringConfig {
 
-    private DataSource dataSource;
+    private EntityManager em;
 
     @Autowired
-    public  SpringConfig(DataSource dataSource) {
-        this.dataSource = dataSource;
+    public SpringConfig(EntityManager em) {
+        this.em = em;
     }
+    //    private DataSource dataSource;
+//
+//    @Autowired
+//    public  SpringConfig(DataSource dataSource) {
+//        this.dataSource = dataSource;
+//    }
 
     // @Configuration 등록 후 @Bean을 하면 스프링 빈을 등록하겠다는 뜻
     // 이런식으로 작성하면 스프링이 실행될 때 configuration 읽어오고
@@ -34,6 +42,7 @@ public class SpringConfig {
     public MemberRepository memberRepository() {
 //        return new MemoryMemberRepository(); // MemberRepository는 인터페이스라 new가 안됨, 구현체인 MemoryMemberRepository 사용
 //        return new JdbcMemberRepository(dataSource);
-        return new JdbcTemplateMemberRepository(dataSource);
+//        return new JdbcTemplateMemberRepository(dataSource);
+        return new JpaMemberRepository(em);
     }
 }

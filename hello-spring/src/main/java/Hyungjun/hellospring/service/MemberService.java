@@ -5,14 +5,18 @@ import Hyungjun.hellospring.repository.MemberRepository;
 import Hyungjun.hellospring.repository.MemoryMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
-//@Service
+// @Service
 // 자바 코드로 직접 스프링 빈 등록하기 위해 제거
 
+// Jpa를 사용히여 데이터를 변경할땐 @Transactional이 필요
+@Transactional
 public class MemberService {
+
     private final MemberRepository memberRepository; // = new MemoryMemberRepository();
 
     // 기존에 MemberService class를 만들 때 생성되던 memberRepository를 외부에서 넣어주는 방식으로 변경
