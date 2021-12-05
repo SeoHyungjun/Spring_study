@@ -5,9 +5,9 @@ import Hyungjun.hellospring.domain.Member;
 import java.util.List;
 import java.util.Optional;
 
-public interface MemberRepository {
+public interface  {
     Member save(Member member);
     Optional<Member> findById(Long id);
     Optional<Member> findByName(String name);
-    List<Member> finaAll();
+    List<Member> findAll();
 }
