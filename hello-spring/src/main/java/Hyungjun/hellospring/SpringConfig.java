@@ -1,5 +1,6 @@
 package Hyungjun.hellospring;
 
+import Hyungjun.hellospring.aop.TimeTraceAop;
 import Hyungjun.hellospring.repository.JdbcTemplateMemberRepository;
 import Hyungjun.hellospring.repository.JpaMemberRepository;
 import Hyungjun.hellospring.repository.MemberRepository;
