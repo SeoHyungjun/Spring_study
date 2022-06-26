@@ -18,7 +18,7 @@ public class OrderServiceImpl implements OrderService {
 
     //lombok의 @RequiredArgsConstructor을 추가하면 final이 붙은 필드를 모아서 생성자를 자동으로 만들어준다
     //코드에는 보이지 않지만 실제 호출 가능
-  능 /*
+    /*
     @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
